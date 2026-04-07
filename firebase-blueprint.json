@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "A user's dating profile information.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "displayName": { "type": "string", "description": "User's full name" },
+        "age": { "type": "integer", "description": "User's age" },
+        "gender": { "type": "string", "enum": ["male", "female", "other"], "description": "User's gender" },
+        "location": { "type": "string", "description": "User's city/location" },
+        "bio": { "type": "string", "description": "Short bio" },
+        "photoURL": { "type": "string", "format": "uri", "description": "Profile photo URL" },
+        "whatsappNumber": { "type": "string", "description": "WhatsApp phone number with country code" },
+        "isPremium": { "type": "boolean", "description": "Whether the user has a premium boost" },
+        "isVerified": { "type": "boolean", "description": "Whether the user is verified" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account creation date" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last profile update" }
+      },
+      "required": ["uid", "displayName", "age", "gender", "location", "whatsappNumber"]
+    },
+    "Like": {
+      "title": "Like Interaction",
+      "description": "A 'like' sent from one user to another.",
+      "type": "object",
+      "properties": {
+        "fromUid": { "type": "string", "description": "UID of the user who liked" },
+        "toUid": { "type": "string", "description": "UID of the user who was liked" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the like occurred" }
+      },
+      "required": ["fromUid", "toUid", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Collection of user profiles."
+    },
+    "likes": {
+      "schema": "Like",
+      "description": "Collection of likes between users."
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Jolie Connect",
+  "description": "A lightweight, mobile-first dating app that connects users via WhatsApp, featuring local matching, email verification, and premium visibility boosts.",
+  "requestFramePermissions": []
+}
